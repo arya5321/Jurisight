@@ -1,75 +1,96 @@
+# Jurisight - Simplifying Your Path to Justice
 
-# Jurisght
-
-**Jurisght** is a legal document summarization and analysis platform that helps legal professionals streamline document review, assess petition validity, and retrieve relevant case law. It leverages advanced NLP models and machine learning to provide accurate summaries, case success predictions, and an interactive Q&A chatbot.
+## Overview
+Jurisight is an AI-driven legal assistant that streamlines the process of preparing and filing online petitions. By leveraging advanced AI models and vector databases, Jurisight enables lawyers and legal professionals to efficiently summarize case reports, reference previous judgments, and predict case outcomes.
 
 ## Features
+- AI-powered Chatbot: Uses Retrieval Augmented Generation (RAG) with LlamaIndex, Llama-3 from Groq and Pinecone vector database.
+- Document Summarization: Automatically summarizes uploaded legal documents using the Longformer Encoder Decoder (LED) model which is fined tuned using Low Rank Adaptation method.
+- Case Retrieval: Retrieves similar cases from a Pinecone vector database based on cosine similarity.
+- Legal Predictions: Fine-tuned Llama-3 8B model predicts the type of petition to be filed and the chance of success.
+- User Authentication: Secure login and signup using JWT-based authentication.
+- Interactive UI: Web-based interface for easy interaction with the chatbot and document processing features.
 
-- **Legal Document Summarization**: Utilizes Longformer to efficiently summarize extensive legal texts.
-- **Case Law Retrieval**: Finds and retrieves relevant case laws based on input queries to support legal research.
-- **Petition Validity Testing**: Predicts case success/failure likelihood based on historical data.
-- **Chatbot with Retrieval-Augmented Generation (RAG)**: Offers context-aware responses by combining retrieval with generation.
-- **Responsive UI**: Built with React for a smooth, interactive user experience.
+## Tech Stack
+- **Frontend**: HTML, CSS, JavaScript
+- **Backend**: Node.js, Express.js, Flask
+- **Database**: MongoDB (for chat history and user authentication)
+- **AI Models**:
+  - Llama-3 (Groq) for legal chatbot responses
+  - LED model for document summarization
+  - Pinecone for case retrieval
+- **Web Scraping**: BeautifulSoup for extracting legal data from Indian Kanoon
 
-## Technology Stack
-
-### Frontend Development - React
-React powers a responsive, dynamic interface, providing fast-loading pages and reusable components.
-
-### Backend Development & Database - Express.js & MongoDB
-- **Express.js**: Manages requests and API endpoints.
-- **MongoDB**: Stores legal documents and case law data, utilizing a flexible document-based structure.
-
-### AI/DS Module Development
-- **Longformer**: Summarizes large documents, capturing essential insights.
-- **RAG (Retrieval-Augmented Generation)**: Enhances chatbot responses by integrating retrieval for higher accuracy.
-- **Case Law Retrieval**: Searches for relevant case laws based on query terms, helping users quickly locate supporting cases.
-- **Petition Validity Testing**: A machine learning model trained to predict case outcomes based on previous court data.
-
-## Getting Started
+## Installation & Setup
 
 ### Prerequisites
-
-- Node.js & npm
-- MongoDB
+Ensure you have the following installed:
+- Node.js
 - Python 3.8+
+- MongoDB
+- Pinecone API Key
+- Groq API Key
+- Google OAuth Credentials
 
-### Installation
-
-1. Clone the repository:
+### Steps
+1. Clone the Repository:
    ```bash
-   git clone https://github.com/Jurisight/major-project.git
-   cd jurisght
+   git clone https://github.com/jurisightproject/jurisight.git
+   cd jurisight
    ```
-
-2. Install backend dependencies:
+2. Backend Setup:
    ```bash
+   cd backend
    npm install
+   .env  # Add required environment variables
+   npm run dev
    ```
-
-3. Set up and start the MongoDB database.
-
-4. Start the server:
+3. Flask API Setup:
    ```bash
-   npm start
+   pip install -r requirements.txt
+   python chatbot.py
    ```
-
-5. (Optional) To start the frontend:
-   ```bash
-   cd frontend
-   npm install
-   npm start
-   ```
+4. Accessing app in local machine:
+   Open `localhost:3000/login` in a browser.
 
 ## Usage
+- Login/Register: Users must log in via email/password or Google OAuth.
+- Chatbot Interaction: Enter legal queries and receive AI-generated responses.
+- Document Upload: Upload case files for summarization and similar case retrieval.
+- Petition Prediction: Receive AI-based recommendations for petition types and chances of success.
 
-1. Upload a legal document for summarization.
-2. Use the chatbot for interactive Q&A with accurate, retrieval-augmented responses.
-3. Enter queries for **case law retrieval** to find relevant legal precedents.
-4. Test petition validity for case success probability.
+## File Structure
+```
+Jurisight/
+├── index.js (Main server file)
+│── middleware/
+|   │── auth.js(middleware)
+├── routes/
+│   ├── auth.js (Authentication routes)
+│   ├── chatbot.js (Chatbot API routes)
+├── models/
+│   ├── user.js (User Schema)
+│   ├── chat.js (Chat History Schema)
+│── chatbot.py (AI model logic)
+│── public/
+|   ├── login.html (login UI)
+|   ├── login-style.css (login styles)
+|   ├── signup.html (signup UI)
+|   ├── signup-style.css (signup styles)
+|   ├── draft.html (demo draft UI)
+|   ├── draft.css (demo draft UI)
+│   ├── index.html (Main page UI)
+|   ├── style.css (Main page styles)
+│   ├── script.js (Frontend logic)
+│── .env (Environment Variables)
+│── .gitignore (Files to be ignored when pushed to github)
+│── Dockerfile
+│── package.json (Node dependencies)
+│── requirements.txt (Python dependencies)
+```
 
-## Contributing
+## License
+This project is licensed under the MIT License.
 
-We welcome contributions! Please fork the repository and submit a pull request with your suggested changes.
-
-
+## Contact
+For any issues or suggestions, reach out to **jurisightproject@gmail.com**.
