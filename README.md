@@ -40,13 +40,14 @@ Ensure you have the following installed:
    ```
 2. Backend Setup:
    ```bash
-   cd backend
+   cd jurisight-backend
    npm install
    .env  # Add required environment variables
    npm run dev
    ```
 3. Flask API Setup:
    ```bash
+   cd jurisight-ai
    pip install -r requirements.txt
    python chatbot.py
    ```
@@ -61,7 +62,13 @@ Ensure you have the following installed:
 
 ## File Structure
 ```
-Jurisight/
+jurisight-ai/
+│── .gitattributes
+│── .gitignore
+│── Dockerfile
+│── chatbot.py (AI model logic)
+│── requirements.txt (Python dependencies)
+jurisight-backend/
 ├── index.js (Main server file)
 │── middleware/
 |   │── auth.js(middleware)
@@ -71,7 +78,6 @@ Jurisight/
 ├── models/
 │   ├── user.js (User Schema)
 │   ├── chat.js (Chat History Schema)
-│── chatbot.py (AI model logic)
 │── public/
 |   ├── login.html (login UI)
 |   ├── login-style.css (login styles)
@@ -85,8 +91,8 @@ Jurisight/
 │── .env (Environment Variables)
 │── .gitignore (Files to be ignored when pushed to github)
 │── Dockerfile
+│── package-lock.json
 │── package.json (Node dependencies)
-│── requirements.txt (Python dependencies)
 ```
 
 ## License
