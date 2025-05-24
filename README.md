@@ -62,6 +62,20 @@ Ensure you have the following installed:
 
 ## File Structure
 ```
+IN-Abs/
+│── test-data/
+|   │── judgment/
+|   │── summary/
+|   │── stats-IN-test.txt
+│── train-data/
+|   │── judgment/
+|   │── summary/
+|   │── stats-IN-train.txt
+writ_new/
+│── data_preprocessing.py
+│── processed_writ.zip
+│── writ.zip
+│── writ_scraping.py
 jurisight-ai/
 │── .gitattributes
 │── .gitignore
@@ -93,6 +107,7 @@ jurisight-backend/
 │── Dockerfile
 │── package-lock.json
 │── package.json (Node dependencies)
+
 ```
 
 ## License
